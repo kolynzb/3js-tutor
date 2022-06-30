@@ -26,4 +26,10 @@ const material = new THREE.MeshBasicMaterial({
 const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
-renderer.render(scene, camera);
+
+function animate() {
+  // THis tells the browser thatyour going to animate something.
+  requestAnimationFrame(animate);
+  // so that every time the browser repaints the screen it calls ypur render method
+  renderer.render(scene, camera);
+}

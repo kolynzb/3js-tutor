@@ -79,4 +79,17 @@ renderer.render(scene, camera);
 ```
 
 - At this point You should see this.
-  <img src="./src/assets/images/docs/torus.png" align="center" width="200" alt="torus image"/>
+<figure>
+  <img src="./src/assets/images/docs/torus.png" align="center" width="500" alt="torus image"/>
+</figure>
+- _Quick tip_: to prevent you from rerendering the scene recurcively.use this
+
+```js
+function animate() {
+  // THis tells the browser that your going to animate something.
+  requestAnimationFrame(animate);
+  // so that every time the browser repaints the screen it calls ypur render method
+  renderer.render(scene, camera);
+  //   you can think of this as a gameloop.
+}
+```
