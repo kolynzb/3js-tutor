@@ -1,5 +1,6 @@
 import "./styles/index.css";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const scene = new THREE.Scene();
 const aspectRatio: number = window.innerWidth / window.innerHeight;
@@ -32,14 +33,34 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointlight, ambientLight);
 
 const lighthelper = new THREE.PointLightHelper(pointlight);
-const gridhelper = new THREE.GridHelper(200,50);
-scene.add(lighthelper,gridhelper);
+const gridhelper = new THREE.GridHelper(200, 50);
+scene.add(lighthelper, gridhelper);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
+// ### Rnadom generation.
+// creating stars with random generation.
+function addStar() {
+  const geometry = new THREE.SphereGeometry(0.25, 24, 24); //0.25 is radius
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const star = new THREE.Mesh(geometry, material);
+  // randomly genrate an xyz value for wach stars
+  // Creat an array of  3 values and for each item generate a number between negative and positive 100.
+  const [x, y, z] = Array(3)
+    .fill(undefined)
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+    star.position.set(x, y, z)
+    scene.add(star)
+}
+Array(200).fill(undefined).forEach(addStar)
 
 function animate() {
   requestAnimationFrame(animate);
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
+
+  controls.update();
   renderer.render(scene, camera);
 }
 

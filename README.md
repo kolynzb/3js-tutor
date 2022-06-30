@@ -160,3 +160,47 @@ scene.add(lighthelper, gridhelper);
 ![point light helper](./src/assets/images/docs/with%20light%20helper.png)
 
 ### Adding Orbit controlls
+
+- Orbit controls help you move the model around.Import it like this.
+  `import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"`
+
+```js
+// this will listen to dom events on the mouse and update the camera position acordingly
+const controls = new OrbitControls(camera, renderer.domElement);
+function animate() {
+  requestAnimationFrame(animate);
+  torus.rotation.x += 0.01;
+  torus.rotation.y += 0.005;
+  torus.rotation.z += 0.01;
+
+  // we call this to make sure thatthe controls are updated
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+animate();
+```
+
+- Now you should be able to see the grid fully and pan around using your mouse..
+  ![orbit controls with grid](./src/assets/images/docs/orbitcontrols1.png)
+
+### Rnadom generation.
+
+```js
+// creating stars with random generation.
+function addStar() {
+  const geometry = new THREE.SphereGeometry(0.25, 24, 24); //0.25 is radius
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const star = new THREE.Mesh(geometry, material);
+  // randomly genrate an xyz value for wach stars
+  // Creat an array of  3 values and for each item generate a number between negative and positive 100.
+  const [x, y, z] = Array(3)
+    .fill(undefined)
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+  star.position.set(x, y, z);
+  scene.add(star);
+}
+Array(200).fill(undefined).forEach(addStar);
+```
+
+![random generation of stars](./src/assets/images/docs/random_generation.png)
