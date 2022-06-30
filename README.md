@@ -136,8 +136,8 @@ pointlight.position.set(5, 5, 5);
 scene.add(pointlight);
 ```
 
-![](./src/assets/images/docs/withpoint.png)
-![](./src/assets/images/docs/withpoint20.png.png)
+![With Point Light(5,5,5)](./src/assets/images/docs/withpoint.png)
+![With Point Light (20,20,20)](./src/assets/images/docs/withpoint20.png)
 
 - But if you want the whole scene lit up you can use na Ambient light.
 
@@ -146,4 +146,4 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointlight, ambientLight);
 ```
 
-![](./src/assets/images/docs/with-abient.png)
+![With ambient and point light](./src/assets/images/docs/with-abient.png)
