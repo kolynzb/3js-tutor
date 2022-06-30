@@ -38,21 +38,22 @@ scene.add(lighthelper, gridhelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// ### Rnadom generation.
-// creating stars with random generation.
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24); //0.25 is radius
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
   const star = new THREE.Mesh(geometry, material);
-  // randomly genrate an xyz value for wach stars
-  // Creat an array of  3 values and for each item generate a number between negative and positive 100.
   const [x, y, z] = Array(3)
     .fill(undefined)
     .map(() => THREE.MathUtils.randFloatSpread(100));
-    star.position.set(x, y, z)
-    scene.add(star)
+  star.position.set(x, y, z);
+  scene.add(star);
 }
-Array(200).fill(undefined).forEach(addStar)
+Array(200).fill(undefined).forEach(addStar);
+
+// loading texture
+// you can pass a call back to notify when the image is done loading.
+const spaceTexture = new THREE.TextureLoader().load("assets/images/space.jpg");
+scene.background = spaceTexture;
 
 function animate() {
   requestAnimationFrame(animate);

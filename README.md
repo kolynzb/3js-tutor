@@ -204,3 +204,16 @@ Array(200).fill(undefined).forEach(addStar);
 ```
 
 ![random generation of stars](./src/assets/images/docs/random_generation.png)
+
+### Adding textures with Images.
+
+```js
+// loading texture
+// you can pass a call back to notify when the image is done loading.
+const spaceTexture = new THREE.TextureLoader().load(
+  "./assets/images/space.jpg"
+);
+scene.background = spaceTexture;
+```
+
+![texture added](./src/assets/images/docs/withtexture.png)
