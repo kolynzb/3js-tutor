@@ -262,3 +262,26 @@ moon.position.x += 5;
 Adding normal map texture adds depth and makes it more realistic.
 `new THREE.MeshStandardMaterial({ map: moonTexture,normalMap:normalTexture })`
 ![moon with normal](./src/assets/images/docs/moon_normal.png)
+
+### Animate on scroll
+
+```js
+// add scrolling effect to scene
+function moveCamera() {
+  // get us how far we are from the top of the page
+  const t = document.body.getBoundingClientRect().top;
+
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
+
+  kolynz.rotation.y += 0.01;
+  kolynz.rotation.z += 0.01;
+
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.002;
+  camera.position.y = t * -0.002;
+}
+// fires function everytime the user scrolls
+document.body.onscroll = moveCamera;
+```
