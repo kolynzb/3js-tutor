@@ -61,10 +61,12 @@
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 // Most materials require a light source but the basic ones dont
 const material = new THREE.MeshBasicMaterial({
-  color: 0xff6347,
+  color: 0xff6347, //   0X IS A HEXADECIMAL value
   wireframe: true, // shows its geometry
 });
 ```
+
+- if you want to add light you can use a meshstanderdmaterial.which takes in light properties.click to follow thorught to the [section](#adding-light).
 
 3. **Mesh**
 
@@ -92,4 +94,43 @@ function animate() {
   renderer.render(scene, camera);
   //   you can think of this as a gameloop.
 }
+// call animate.
+animate();
+```
+
+## Now to animate the shape.
+
+- So every shae we create has different properties like shape ,rotation , scale e.t.c. and if we change the properties inside the loop the shape will animate.
+
+```js
+function animate() {
+  requestAnimationFrame(animate);
+  // Now we shall update the x y and z postiotions for every animation frame.
+  torus.rotation.x += 0.01;
+  torus.rotation.y += 0.005;
+  torus.rotation.z += 0.01;
+  renderer.render(scene, camera);
+}
+// So back in the browser you should see the shape animating.
+animate();
+```
+
+### Adding Light.
+
+- There are many lights in three.js but the best to get started with is a [point light](https://threejs.org/docs/index.html#examples/en/lights/LightProbeGenerator) which emits light in all directions like a light bulb💡.
+
+```js
+const material = new THREE.MeshStandardMaterial({
+  color: 0xff6347,
+  // wireframe: true,
+});
+
+const torus = new THREE.Mesh(geometry, material);
+scene.add(torus);
+// create the point light.
+const pointlight = new THREE.PointLight(0xffffff);
+// we move the light away from the center
+pointlight.position.set(5, 5, 5);
+// add the light to the Scene
+scene.add(pointlight);
 ```
