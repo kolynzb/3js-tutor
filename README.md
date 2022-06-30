@@ -236,7 +236,7 @@ const kolynz = new THREE.Mesh(
 scene.add(kolynz);
 ```
 
-[kOLYNZ CUBE](./src/assets/images/docs/kolynz_cube.png)
+![kOLYNZ CUBE](./src/assets/images/docs/kolynz_cube.png)
 
 ### adding multiple maps
 
