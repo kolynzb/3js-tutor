@@ -55,6 +55,29 @@ const spaceTexture = new THREE.TextureLoader().load(
 );
 scene.background = spaceTexture;
 
+const kolynzTexture = new THREE.TextureLoader().load(
+  "src/assets/textures/kolynz.png"
+);
+const kolynz = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 3, 3),
+  new THREE.MeshBasicMaterial({ map: kolynzTexture })
+);
+
+scene.add(kolynz);
+
+const moonTexture = new THREE.TextureLoader().load(
+  "src/assets/textures/moon.jpg"
+);
+const normalTexture = new THREE.TextureLoader().load(
+  "src/assets/textures/normal.jpg"
+);
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({ map: moonTexture, normalMap: normalTexture })
+);
+scene.add(moon);
+moon.position.x += 5;
+
 function animate() {
   requestAnimationFrame(animate);
   torus.rotation.x += 0.01;

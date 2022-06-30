@@ -219,3 +219,46 @@ scene.background = spaceTexture;
 ```
 
 ![texture added](./src/assets/images/docs/withtexture.png)
+
+### Texture Mapping
+
+- Is process of taking 2d pixels and mappping them on a 3dimensional geometry
+
+```js
+const kolynzTexture = new THREE.TextureLoader().load(
+  "src/assets/textures/kolynz.png"
+);
+const kolynz = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 3, 3),
+  new THREE.MeshBasicMaterial({ map: kolynzTexture })
+);
+
+scene.add(kolynz);
+```
+
+[kOLYNZ CUBE](./src/assets/images/docs/kolynz_cube.png)
+
+### adding multiple maps
+
+- creating the moon
+
+```js
+const moonTexture = new THREE.TextureLoader().load(
+  "src/assets/textures/moon.jpg"
+);
+const normalTexture = new THREE.TextureLoader().load(
+  "src/assets/textures/normal.jpg"
+);
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({ map: moonTexture })
+);
+scene.add(moon);
+moon.position.x += 5;
+```
+
+![moon](./src/assets/images/docs/mooon.png)
+
+Adding normal map texture adds depth and makes it more realistic.
+`new THREE.MeshStandardMaterial({ map: moonTexture,normalMap:normalTexture })`
+![moon with normal](./src/assets/images/docs/moon_normal.png)
