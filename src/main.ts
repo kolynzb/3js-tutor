@@ -31,6 +31,10 @@ pointlight.position.set(5, 5, 5);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointlight, ambientLight);
 
+const lighthelper = new THREE.PointLightHelper(pointlight);
+const gridhelper = new THREE.GridHelper(200,50);
+scene.add(lighthelper,gridhelper);
+
 function animate() {
   requestAnimationFrame(animate);
   torus.rotation.x += 0.01;

@@ -147,3 +147,16 @@ scene.add(pointlight, ambientLight);
 ```
 
 ![With ambient and point light](./src/assets/images/docs/with-abient.png)
+
+- Using Light helpers
+
+```js
+const lighthelper = new THREE.PointLightHelper(pointlight);
+// adds a line acroos the screen
+const gridhelper = new THREE.GridHelper(200, 50);
+scene.add(lighthelper, gridhelper);
+```
+
+![point light helper](./src/assets/images/docs/with%20light%20helper.png)
+
+### Adding Orbit controlls
