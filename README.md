@@ -207,11 +207,13 @@ Array(200).fill(undefined).forEach(addStar);
 
 ### Adding textures with Images.
 
+- [Textureloader](https://threejs.org/docs/#api/en/loaders/TextureLoader)
+
 ```js
 // loading texture
 // you can pass a call back to notify when the image is done loading.
 const spaceTexture = new THREE.TextureLoader().load(
-  "./assets/images/space.jpg"
+  "src/assets/textures/space.jpg"
 );
 scene.background = spaceTexture;
 ```
