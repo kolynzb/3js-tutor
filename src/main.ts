@@ -27,7 +27,9 @@ const torus = new THREE.Mesh(geometry, material);
 scene.add(torus);
 const pointlight = new THREE.PointLight(0xffffff);
 pointlight.position.set(5, 5, 5);
-scene.add(pointlight);
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointlight, ambientLight);
 
 function animate() {
   requestAnimationFrame(animate);

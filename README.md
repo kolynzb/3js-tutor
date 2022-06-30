@@ -130,7 +130,20 @@ scene.add(torus);
 // create the point light.
 const pointlight = new THREE.PointLight(0xffffff);
 // we move the light away from the center
+// the smaller the value the closer the light
 pointlight.position.set(5, 5, 5);
 // add the light to the Scene
 scene.add(pointlight);
 ```
+
+![](./src/assets/images/docs/withpoint.png)
+![](./src/assets/images/docs/withpoint20.png.png)
+
+- But if you want the whole scene lit up you can use na Ambient light.
+
+```js
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointlight, ambientLight);
+```
+
+![](./src/assets/images/docs/with-abient.png)
