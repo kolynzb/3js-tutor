@@ -26,11 +26,11 @@ const matcapTexture = textureLoader.load(
 );
 // Material is how the geometry will look once its inside the scene.This can be a color or texture
 //  The color format can be written in hex 0xfff000 or in a string "#fff"
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-// const material = new THREE.MeshMatcapMaterial({
-//   color: 0xff0000,
-//   matcap: matcapTexture,
-// });
+// const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const material = new THREE.MeshMatcapMaterial({
+  color: 0xff0000,
+  matcap: matcapTexture,
+});
 // Shaders are used to create custom materials.
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
