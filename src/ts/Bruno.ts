@@ -18,6 +18,9 @@ scene.add(mesh);
 
 // This helps to render the stuff to the screen if you dont pass a canvas it will create one automaticatilly but you have to addit to the dom.
 const renderer = new THREE.WebGLRenderer({});
-// we set the size of the render
+// we set the size of the render.
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.append(renderer.domElement)
+document.body.append(renderer.domElement);
+// A render is like taking a photo.
+// soo this is like taking one photo of the scene through our camera.
+renderer.render(scene, camera);
