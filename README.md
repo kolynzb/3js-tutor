@@ -5,14 +5,19 @@
 # Terms
 
 - **Scene**
-  Object that contains all yor cameras and lights.think of it as a container.
+  Object that contains all yor cameras,objects and lights. Think of it as a container or our movie set.
+
   `const scene = new THREE.Scene();`
+
 - **Camera**
 
-  - This is what we use to look at things inside the scene.There various types of cameras but the most common is the [perspective camera](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera) which is designed to mimic what humans see.
+  - This is what we use to look at things inside the scene. _Think of it as the eyes of the scene_. There various types of cameras but the most common is the [perspective camera](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera) which is designed to mimic what humans see.
+
     `const camera = new THREE.PerspectiveCamera()`
+
     `const camera = new THREE.PerspectiveCamera(75, aspectRatio,0.1,100);`
-  - its first argument is _field of view_ which is the amount of the world thats visible based on a full 360deg.
+
+  - Its 1st argument is the _field of view_ which is the amount of the world thats visible based on a full 360deg. (_Most times you will use 75deg_).
   <figure>
   <img src="./src/assets/images/docs/fieldofview.png" align="center" width="200" />
   <caption>Field of View</caption>
@@ -21,10 +26,11 @@
   - The remaining arguements are for the _View Frustram_.Contraols which objects are visible relative to the camera.
   <figure>
   <img src="./src/assets/images/docs/viewFrustrum.png" align="center" width="200"/>
-  <caption>Field of View</caption>
+  <caption> Field of View </caption>
   </figure>
+  
   - **Renderer**
-    Renders the graphics to the scene.Rendering is basically drawing.
+    - Renders the graphics to the scene.Rendering is basically drawing.
 
   ```js
   //select canvas
