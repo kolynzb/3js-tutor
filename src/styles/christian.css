@@ -1,0 +1,18 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+}
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* transform your png into base64 max 250x250, replace the image  code, and it rock ! https://www.base64-image.de/
+
+// Thanks Mamboleoo for the original post
+// https://codepen.io/Mamboleoo/post/how-to-convert-an-image-into-particles*/
